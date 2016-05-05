@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cibkinfoMapper">
+ <resultMap id="BaseResultMap" type="com.springmvc.model.Cibkinfo">
+    <id column="INSTTU_CDE" jdbcType="VARCHAR" property="insttuCde" />
+    <id column="IN_BANK_CD" jdbcType="DECIMAL" property="inBankCd" />
+    <result column="BANK_CD" jdbcType="VARCHAR" property="bankCd" />
+    <result column="BANK_NAME" jdbcType="VARCHAR" property="bankName" />
+    <result column="BRCH_NAME" jdbcType="VARCHAR" property="brchName" />
+    <result column="SBRCH_NAME" jdbcType="VARCHAR" property="sbrchName" />
+    <result column="SNAME" jdbcType="VARCHAR" property="sname" />
+    <result column="BKTYPE" jdbcType="VARCHAR" property="bktype" />
+    <result column="BUS_TYPE" jdbcType="CHAR" property="busType" />
+    <result column="APPL_STATUS" jdbcType="CHAR" property="applStatus" />
+    <result column="BK_FLAG" jdbcType="CHAR" property="bkFlag" />
+    <result column="ZONE_CODE" jdbcType="CHAR" property="zoneCode" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
+    <result column="PHONE" jdbcType="VARCHAR" property="phone" />
+    <result column="CONT_PSN" jdbcType="VARCHAR" property="contPsn" />
+    <result column="ZIP" jdbcType="CHAR" property="zip" />
+    <result column="CTY_CHG" jdbcType="DECIMAL" property="ctyChg" />
+    <result column="CLR_CENTER" jdbcType="CHAR" property="clrCenter" />
+    <result column="CIF_CENTER" jdbcType="VARCHAR" property="cifCenter" />
+    <result column="HOST_NAME" jdbcType="VARCHAR" property="hostName" />
+    <result column="BKUP_NAME" jdbcType="VARCHAR" property="bkupName" />
+    <result column="HOME_CURR" jdbcType="CHAR" property="homeCurr" />
+    <result column="STATUS" jdbcType="CHAR" property="status" />
+    <result column="G_BANK" jdbcType="DECIMAL" property="gBank" />
+    <result column="CUST_JC" jdbcType="VARCHAR" property="custJc" />
+    <result column="IS_XZX" jdbcType="CHAR" property="isXzx" />
+    <result column="M_LOAN_FLAG" jdbcType="CHAR" property="mLoanFlag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    INSTTU_CDE, IN_BANK_CD, BANK_CD, BANK_NAME, BRCH_NAME, SBRCH_NAME, SNAME, BKTYPE, 
+    BUS_TYPE, APPL_STATUS, BK_FLAG, ZONE_CODE, ADDRESS, PHONE, CONT_PSN, ZIP, CTY_CHG, 
+    CLR_CENTER, CIF_CENTER, HOST_NAME, BKUP_NAME, HOME_CURR, STATUS, G_BANK, CUST_JC, 
+    IS_XZX, M_LOAN_FLAG
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.springmvc.model.CibkinfoKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CIBKINFO
+    where INSTTU_CDE = #{insttuCde,jdbcType=VARCHAR}
+      and IN_BANK_CD = #{inBankCd,jdbcType=DECIMAL}
+  </select>
+ <!-- <delete id="deleteByPrimaryKey" parameterType="com.springmvc.model.CibkinfoKey">
+    delete from CIBKINFO
+    where INSTTU_CDE = #{insttuCde,jdbcType=VARCHAR}
+      and IN_BANK_CD = #{inBankCd,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.springmvc.model.Cibkinfo">
+    insert into CIBKINFO (INSTTU_CDE, IN_BANK_CD, BANK_CD, 
+      BANK_NAME, BRCH_NAME, SBRCH_NAME, 
+      SNAME, BKTYPE, BUS_TYPE, 
+      APPL_STATUS, BK_FLAG, ZONE_CODE, 
+      ADDRESS, PHONE, CONT_PSN, 
+      ZIP, CTY_CHG, CLR_CENTER, CIF_CENTER, 
+      HOST_NAME, BKUP_NAME, HOME_CURR, 
+      STATUS, G_BANK, CUST_JC, 
+      IS_XZX, M_LOAN_FLAG)
+    values (#{insttuCde,jdbcType=VARCHAR}, #{inBankCd,jdbcType=DECIMAL}, #{bankCd,jdbcType=VARCHAR}, 
+      #{bankName,jdbcType=VARCHAR}, #{brchName,jdbcType=VARCHAR}, #{sbrchName,jdbcType=VARCHAR}, 
+      #{sname,jdbcType=VARCHAR}, #{bktype,jdbcType=VARCHAR}, #{busType,jdbcType=CHAR}, 
+      #{applStatus,jdbcType=CHAR}, #{bkFlag,jdbcType=CHAR}, #{zoneCode,jdbcType=CHAR}, 
+      #{address,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{contPsn,jdbcType=VARCHAR}, 
+      #{zip,jdbcType=CHAR}, #{ctyChg,jdbcType=DECIMAL}, #{clrCenter,jdbcType=CHAR}, #{cifCenter,jdbcType=VARCHAR}, 
+      #{hostName,jdbcType=VARCHAR}, #{bkupName,jdbcType=VARCHAR}, #{homeCurr,jdbcType=CHAR}, 
+      #{status,jdbcType=CHAR}, #{gBank,jdbcType=DECIMAL}, #{custJc,jdbcType=VARCHAR}, 
+      #{isXzx,jdbcType=CHAR}, #{mLoanFlag,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.springmvc.model.Cibkinfo">
+    insert into CIBKINFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="insttuCde != null">
+        INSTTU_CDE,
+      </if>
+      <if test="inBankCd != null">
+        IN_BANK_CD,
+      </if>
+      <if test="bankCd != null">
+        BANK_CD,
+      </if>
+      <if test="bankName != null">
+        BANK_NAME,
+      </if>
+      <if test="brchName != null">
+        BRCH_NAME,
+      </if>
+      <if test="sbrchName != null">
+        SBRCH_NAME,
+      </if>
+      <if test="sname != null">
+        SNAME,
+      </if>
+      <if test="bktype != null">
+        BKTYPE,
+      </if>
+      <if test="busType != null">
+        BUS_TYPE,
+      </if>
+      <if test="applStatus != null">
+        APPL_STATUS,
+      </if>
+      <if test="bkFlag != null">
+        BK_FLAG,
+      </if>
+      <if test="zoneCode != null">
+        ZONE_CODE,
+      </if>
+      <if test="address != null">
+        ADDRESS,
+      </if>
+      <if test="phone != null">
+        PHONE,
+      </if>
+      <if test="contPsn != null">
+        CONT_PSN,
+      </if>
+      <if test="zip != null">
+        ZIP,
+      </if>
+      <if test="ctyChg != null">
+        CTY_CHG,
+      </if>
+      <if test="clrCenter != null">
+        CLR_CENTER,
+      </if>
+      <if test="cifCenter != null">
+        CIF_CENTER,
+      </if>
+      <if test="hostName != null">
+        HOST_NAME,
+      </if>
+      <if test="bkupName != null">
+        BKUP_NAME,
+      </if>
+      <if test="homeCurr != null">
+        HOME_CURR,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="gBank != null">
+        G_BANK,
+      </if>
+      <if test="custJc != null">
+        CUST_JC,
+      </if>
+      <if test="isXzx != null">
+        IS_XZX,
+      </if>
+      <if test="mLoanFlag != null">
+        M_LOAN_FLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="insttuCde != null">
+        #{insttuCde,jdbcType=VARCHAR},
+      </if>
+      <if test="inBankCd != null">
+        #{inBankCd,jdbcType=DECIMAL},
+      </if>
+      <if test="bankCd != null">
+        #{bankCd,jdbcType=VARCHAR},
+      </if>
+      <if test="bankName != null">
+        #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="brchName != null">
+        #{brchName,jdbcType=VARCHAR},
+      </if>
+      <if test="sbrchName != null">
+        #{sbrchName,jdbcType=VARCHAR},
+      </if>
+      <if test="sname != null">
+        #{sname,jdbcType=VARCHAR},
+      </if>
+      <if test="bktype != null">
+        #{bktype,jdbcType=VARCHAR},
+      </if>
+      <if test="busType != null">
+        #{busType,jdbcType=CHAR},
+      </if>
+      <if test="applStatus != null">
+        #{applStatus,jdbcType=CHAR},
+      </if>
+      <if test="bkFlag != null">
+        #{bkFlag,jdbcType=CHAR},
+      </if>
+      <if test="zoneCode != null">
+        #{zoneCode,jdbcType=CHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="contPsn != null">
+        #{contPsn,jdbcType=VARCHAR},
+      </if>
+      <if test="zip != null">
+        #{zip,jdbcType=CHAR},
+      </if>
+      <if test="ctyChg != null">
+        #{ctyChg,jdbcType=DECIMAL},
+      </if>
+      <if test="clrCenter != null">
+        #{clrCenter,jdbcType=CHAR},
+      </if>
+      <if test="cifCenter != null">
+        #{cifCenter,jdbcType=VARCHAR},
+      </if>
+      <if test="hostName != null">
+        #{hostName,jdbcType=VARCHAR},
+      </if>
+      <if test="bkupName != null">
+        #{bkupName,jdbcType=VARCHAR},
+      </if>
+      <if test="homeCurr != null">
+        #{homeCurr,jdbcType=CHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="gBank != null">
+        #{gBank,jdbcType=DECIMAL},
+      </if>
+      <if test="custJc != null">
+        #{custJc,jdbcType=VARCHAR},
+      </if>
+      <if test="isXzx != null">
+        #{isXzx,jdbcType=CHAR},
+      </if>
+      <if test="mLoanFlag != null">
+        #{mLoanFlag,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.springmvc.model.Cibkinfo">
+    update CIBKINFO
+    <set>
+      <if test="bankCd != null">
+        BANK_CD = #{bankCd,jdbcType=VARCHAR},
+      </if>
+      <if test="bankName != null">
+        BANK_NAME = #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="brchName != null">
+        BRCH_NAME = #{brchName,jdbcType=VARCHAR},
+      </if>
+      <if test="sbrchName != null">
+        SBRCH_NAME = #{sbrchName,jdbcType=VARCHAR},
+      </if>
+      <if test="sname != null">
+        SNAME = #{sname,jdbcType=VARCHAR},
+      </if>
+      <if test="bktype != null">
+        BKTYPE = #{bktype,jdbcType=VARCHAR},
+      </if>
+      <if test="busType != null">
+        BUS_TYPE = #{busType,jdbcType=CHAR},
+      </if>
+      <if test="applStatus != null">
+        APPL_STATUS = #{applStatus,jdbcType=CHAR},
+      </if>
+      <if test="bkFlag != null">
+        BK_FLAG = #{bkFlag,jdbcType=CHAR},
+      </if>
+      <if test="zoneCode != null">
+        ZONE_CODE = #{zoneCode,jdbcType=CHAR},
+      </if>
+      <if test="address != null">
+        ADDRESS = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        PHONE = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="contPsn != null">
+        CONT_PSN = #{contPsn,jdbcType=VARCHAR},
+      </if>
+      <if test="zip != null">
+        ZIP = #{zip,jdbcType=CHAR},
+      </if>
+      <if test="ctyChg != null">
+        CTY_CHG = #{ctyChg,jdbcType=DECIMAL},
+      </if>
+      <if test="clrCenter != null">
+        CLR_CENTER = #{clrCenter,jdbcType=CHAR},
+      </if>
+      <if test="cifCenter != null">
+        CIF_CENTER = #{cifCenter,jdbcType=VARCHAR},
+      </if>
+      <if test="hostName != null">
+        HOST_NAME = #{hostName,jdbcType=VARCHAR},
+      </if>
+      <if test="bkupName != null">
+        BKUP_NAME = #{bkupName,jdbcType=VARCHAR},
+      </if>
+      <if test="homeCurr != null">
+        HOME_CURR = #{homeCurr,jdbcType=CHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=CHAR},
+      </if>
+      <if test="gBank != null">
+        G_BANK = #{gBank,jdbcType=DECIMAL},
+      </if>
+      <if test="custJc != null">
+        CUST_JC = #{custJc,jdbcType=VARCHAR},
+      </if>
+      <if test="isXzx != null">
+        IS_XZX = #{isXzx,jdbcType=CHAR},
+      </if>
+      <if test="mLoanFlag != null">
+        M_LOAN_FLAG = #{mLoanFlag,jdbcType=CHAR},
+      </if>
+    </set>
+    where INSTTU_CDE = #{insttuCde,jdbcType=VARCHAR}
+      and IN_BANK_CD = #{inBankCd,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.springmvc.model.Cibkinfo">
+    update CIBKINFO
+    set BANK_CD = #{bankCd,jdbcType=VARCHAR},
+      BANK_NAME = #{bankName,jdbcType=VARCHAR},
+      BRCH_NAME = #{brchName,jdbcType=VARCHAR},
+      SBRCH_NAME = #{sbrchName,jdbcType=VARCHAR},
+      SNAME = #{sname,jdbcType=VARCHAR},
+      BKTYPE = #{bktype,jdbcType=VARCHAR},
+      BUS_TYPE = #{busType,jdbcType=CHAR},
+      APPL_STATUS = #{applStatus,jdbcType=CHAR},
+      BK_FLAG = #{bkFlag,jdbcType=CHAR},
+      ZONE_CODE = #{zoneCode,jdbcType=CHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      PHONE = #{phone,jdbcType=VARCHAR},
+      CONT_PSN = #{contPsn,jdbcType=VARCHAR},
+      ZIP = #{zip,jdbcType=CHAR},
+      CTY_CHG = #{ctyChg,jdbcType=DECIMAL},
+      CLR_CENTER = #{clrCenter,jdbcType=CHAR},
+      CIF_CENTER = #{cifCenter,jdbcType=VARCHAR},
+      HOST_NAME = #{hostName,jdbcType=VARCHAR},
+      BKUP_NAME = #{bkupName,jdbcType=VARCHAR},
+      HOME_CURR = #{homeCurr,jdbcType=CHAR},
+      STATUS = #{status,jdbcType=CHAR},
+      G_BANK = #{gBank,jdbcType=DECIMAL},
+      CUST_JC = #{custJc,jdbcType=VARCHAR},
+      IS_XZX = #{isXzx,jdbcType=CHAR},
+      M_LOAN_FLAG = #{mLoanFlag,jdbcType=CHAR}
+    where INSTTU_CDE = #{insttuCde,jdbcType=VARCHAR}
+      and IN_BANK_CD = #{inBankCd,jdbcType=DECIMAL}
+  </update> -->
+</mapper>
