@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yangxin.develop.usermanage.mapper.UsersMapper" >
+  <resultMap id="BaseResultMap" type="com.yangxin.develop.usermanage.dto.UsersDTO" >
+    <id column="USER_ID" property="userId" jdbcType="VARCHAR" />
+    <result column="LOGIN_NAME" property="loginName" jdbcType="VARCHAR" />
+    <result column="PASSWORD" property="password" jdbcType="VARCHAR" />
+    <result column="TRUE_NAME" property="trueName" jdbcType="VARCHAR" />
+    <result column="SEX" property="sex" jdbcType="VARCHAR" />
+    <result column="BIRTHDAY" property="birthday" jdbcType="DATE" />
+    <result column="TITLES" property="titles" jdbcType="VARCHAR" />
+    <result column="DEPARTMENT" property="department" jdbcType="VARCHAR" />
+    <result column="PROJECT_TEAM" property="projectTeam" jdbcType="VARCHAR" />
+    <result column="CREATED_BY" property="createdBy" jdbcType="VARCHAR" />
+    <result column="CREATED_DATE" property="createdDate" jdbcType="DATE" />
+    <result column="UPDATED_BY" property="updatedBy" jdbcType="VARCHAR" />
+    <result column="UPDATED_DATE" property="updatedDate" jdbcType="DATE" />
+    <result column="PROJECT_IDS" property="projectIds" jdbcType="VARCHAR" />
+    <result column="EMPLOY_ID" property="employId" jdbcType="VARCHAR" />
+    <result column="COMPANYID" property="companyid" jdbcType="VARCHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="DEPTIDS" property="deptids" jdbcType="VARCHAR" />
+    <result column="CELLPHONE" property="cellphone" jdbcType="VARCHAR" />
+    <result column="TELEPHONE" property="telephone" jdbcType="VARCHAR" />
+    <result column="EMAIL" property="email" jdbcType="VARCHAR" />
+    <result column="SHOWID" property="showid" jdbcType="DECIMAL" />
+    <result column="STARTJOB_DATE" property="startjobDate" jdbcType="DATE" />
+    <result column="PROBATION_DATE" property="probationDate" jdbcType="DATE" />
+    <result column="POST" property="post" jdbcType="VARCHAR" />
+    <result column="QQ_NUMBER" property="qqNumber" jdbcType="VARCHAR" />
+    <result column="IS_REGISTER" property="isRegister" jdbcType="CHAR" />
+    <result column="IS_RELY" property="isRely" jdbcType="CHAR" />
+    <result column="EXPENSE" property="expense" jdbcType="DECIMAL" />
+    <result column="PROJECT_MANAGER" property="projectManager" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    USER_ID, LOGIN_NAME, PASSWORD, TRUE_NAME, SEX, BIRTHDAY, TITLES, DEPARTMENT, PROJECT_TEAM, 
+    CREATED_BY, CREATED_DATE, UPDATED_BY, UPDATED_DATE, PROJECT_IDS, EMPLOY_ID, COMPANYID, 
+    REMARK, DEPTIDS, CELLPHONE, TELEPHONE, EMAIL, SHOWID, STARTJOB_DATE, PROBATION_DATE, 
+    POST, QQ_NUMBER, IS_REGISTER, IS_RELY, EXPENSE, PROJECT_MANAGER
+  </sql>
+  <select id="selectUsersByAll" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from USERS
+  </select>
+</mapper>

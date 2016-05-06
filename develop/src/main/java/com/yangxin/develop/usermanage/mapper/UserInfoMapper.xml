@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yangxin.develop.usermanage.mapper.UserInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.yangxin.develop.usermanage.dto.UserInfo" >
+    <id column="USER_ID" property="userId" jdbcType="VARCHAR" />
+    <result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    USER_ID, USER_NAME
+  </sql>
+  <select id="selectUserInfoByID" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from USERINFO
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+  </select>
+  
+  <insert id="insertUserInfo" parameterType="com.yangxin.develop.usermanage.dto.UserInfo" >
+    insert into USERINFO (USER_ID, USER_NAME)
+    values (#{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR})
+  </insert>
+
+</mapper>
