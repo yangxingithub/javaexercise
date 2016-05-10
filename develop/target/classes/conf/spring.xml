@@ -9,5 +9,18 @@
 
    <import resource="spring-mybatis.xml"/>
    <!-- 配置注解方式 -->  
-   <context:component-scan base-package="com.yangxin"/> 
+   <context:component-scan base-package="com.yangxin"/>
+
+	<bean id="usersReader" class="com.yangxin.develop.usermanage.batchprocess.UsersReader">
+		<property name="userlist">
+			<bean
+				class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+				<!-- targetObject确定目标Bean，指定调用哪个Bean -->
+				<property name="targetObject" ref="userDao" />
+				<!-- targetMethod确定目标方法，指定调用目标Bean的哪个方法 -->
+				<property name="targetMethod" value="getUsersByAll" />
+			</bean>
+		</property>
+
+	</bean>
 </beans> 
